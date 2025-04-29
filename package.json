@@ -1,0 +1,30 @@
+{
+  "name": "ai-terminal-interface",
+  "version": "1.0.0",
+  "description": "A terminal-style interface for interacting with the OpenAI API.",
+  "main": "backend.js",
+  "scripts": {
+    "start": "node backend.js",
+    "dev": "nodemon backend.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.9",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "keywords": [
+    "AI",
+    "OpenAI",
+    "Express",
+    "Terminal",
+    "Vercel"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
