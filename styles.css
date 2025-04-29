@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: monospace;
+    margin: 0;
+    padding: 10px;
+}
+
+#terminal {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    caret-color: black;
+}
+#input:focus {
+    outline: none;
+}
