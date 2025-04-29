@@ -20,7 +20,9 @@ body {
     color: black;
     background-color: white;
     caret-color: black;
-}
-#input:focus {
-    outline: none;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
