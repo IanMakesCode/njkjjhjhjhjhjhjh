@@ -22,12 +22,12 @@ app.post("/api/send", async (req, res) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                model: "gpt-4",
+                model: "o4-mini-2025-04-16", // Using the specified snapshot
                 messages: [
                     { role: "system", content: "You are a helpful assistant." },
                     { role: "user", content: prompt }
                 ],
-                max_tokens: 4096,
+                max_tokens: 150,
             }),
         });
 
