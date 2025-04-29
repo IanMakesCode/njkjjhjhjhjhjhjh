@@ -1,12 +1,3 @@
-const express = require("express");
-const fetch = require("node-fetch");
-const dotenv = require("dotenv");
-
-dotenv.config();
-
-const app = express();
-app.use(express.json());
-
 app.post("/api/send", async (req, res) => {
     const { prompt } = req.body;
 
@@ -22,9 +13,9 @@ app.post("/api/send", async (req, res) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                model: "gpt-4",
+                model: "gpt-4", // Change model to 'gpt-4'
                 prompt: prompt,
-                max_tokens: 4000,
+                max_tokens: 4096, // Customize token limit based on your requirements
             }),
         });
 
@@ -38,9 +29,4 @@ app.post("/api/send", async (req, res) => {
         console.error("Error with OpenAI API:", error.message);
         res.status(500).json({ error: "Failed to process the request." });
     }
-});
-
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Backend server running at http://localhost:${PORT}`);
 });
