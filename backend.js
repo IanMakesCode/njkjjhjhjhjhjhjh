@@ -22,9 +22,9 @@ app.post("/api/send", async (req, res) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                model: "text-davinci-003",
+                model: "gpt-4",
                 prompt: prompt,
-                max_tokens: 100,
+                max_tokens: 4000,
             }),
         });
 
