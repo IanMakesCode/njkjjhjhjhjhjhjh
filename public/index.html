@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puter.js with API Key</title>
+    <script src="https://js.puter.com/v2/"></script>
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <h1>Welcome to Secure AI Features</h1>
+    
+    <input id="apiKeyInput" type="text" placeholder="Enter your API key" />
+    <button onclick="setApiKey()">Submit API Key</button>
+
+    <div id="status"></div>
+    <button id="generateText" onclick="generateText()" disabled>Generate Text</button>
+    <button id="generateImage" onclick="generateImage()" disabled>Generate Image</button>
+
+    <script>
+        let userApiKey = '';
+
+        function setApiKey() {
+            userApiKey = document.getElementById('apiKeyInput').value;
+            fetch('/api/validate-key', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ apiKey: userApiKey }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.valid) {
+                    document.getElementById('status').innerText = 'API key is valid!';
+                    document.getElementById('generateText').disabled = false;
+                    document.getElementById('generateImage').disabled = false;
+                } else {
+                    document.getElementById('status').innerText = 'Invalid API key!';
+                }
+            });
+        }
+
+        function generateText() {
+            if (!userApiKey) return alert('Please provide a valid API key.');
+            puter.ai.chat("What are the benefits of exercise?")
+                .then(response => {
+                    document.getElementById('status').innerText = `Response: ${response}`;
+                });
+        }
+
+        function generateImage() {
+            if (!userApiKey) return alert('Please provide a valid API key.');
+            puter.ai.txt2img("A futuristic cityscape at night")
+                .then(imageElement => {
+                    document.body.appendChild(imageElement);
+                });
+        }
+    </script>
+</body>
+</html>
